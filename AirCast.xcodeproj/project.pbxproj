@@ -18,12 +18,11 @@
 		490303CF17C9799B0035849D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 490303C317C9799B0035849D /* main.m */; };
 		490303D017C9799B0035849D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490303C417C9799B0035849D /* Main_iPad.storyboard */; };
 		490303D117C9799B0035849D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490303C517C9799B0035849D /* Main_iPhone.storyboard */; };
-		490303D217C9799B0035849D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490303C917C9799B0035849D /* ViewController.m */; };
+		490303D217C9799B0035849D /* DevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490303C917C9799B0035849D /* DevicesViewController.m */; };
 		490303D517C979BB0035849D /* GCKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490303D417C979BB0035849D /* GCKFramework.framework */; };
 		490303D617C979BB0035849D /* GCKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490303D417C979BB0035849D /* GCKFramework.framework */; };
-		490303DC17C979C70035849D /* AirCastTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 490303D817C979C70035849D /* AirCastTests-Info.plist */; };
-		490303DD17C979C70035849D /* AirCastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 490303D917C979C70035849D /* AirCastTests.m */; };
-		490303DE17C979C70035849D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 490303DA17C979C70035849D /* InfoPlist.strings */; };
+		490303DC17C979C70035849D /* TestsInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 490303D817C979C70035849D /* TestsInfo.plist */; };
+		490303DD17C979C70035849D /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 490303D917C979C70035849D /* Tests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +50,11 @@
 		490303C417C9799B0035849D /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		490303C517C9799B0035849D /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		490303C617C9799B0035849D /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		490303C817C9799B0035849D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		490303C917C9799B0035849D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		490303C817C9799B0035849D /* DevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevicesViewController.h; sourceTree = "<group>"; };
+		490303C917C9799B0035849D /* DevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevicesViewController.m; sourceTree = "<group>"; };
 		490303D417C979BB0035849D /* GCKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCKFramework.framework; path = Frameworks/GCKFramework.framework; sourceTree = "<group>"; };
-		490303D817C979C70035849D /* AirCastTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AirCastTests-Info.plist"; sourceTree = "<group>"; };
-		490303D917C979C70035849D /* AirCastTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirCastTests.m; sourceTree = "<group>"; };
-		490303DB17C979C70035849D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		490303D817C979C70035849D /* TestsInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestsInfo.plist; sourceTree = "<group>"; };
+		490303D917C979C70035849D /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +149,8 @@
 		490303C717C9799B0035849D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				490303C817C9799B0035849D /* ViewController.h */,
-				490303C917C9799B0035849D /* ViewController.m */,
+				490303C817C9799B0035849D /* DevicesViewController.h */,
+				490303C917C9799B0035849D /* DevicesViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,9 +158,8 @@
 		490303D717C979C70035849D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				490303D817C979C70035849D /* AirCastTests-Info.plist */,
-				490303D917C979C70035849D /* AirCastTests.m */,
-				490303DA17C979C70035849D /* InfoPlist.strings */,
+				490303D817C979C70035849D /* TestsInfo.plist */,
+				490303D917C979C70035849D /* Tests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -253,8 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				490303DC17C979C70035849D /* AirCastTests-Info.plist in Resources */,
-				490303DE17C979C70035849D /* InfoPlist.strings in Resources */,
+				490303DC17C979C70035849D /* TestsInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				490303D217C9799B0035849D /* ViewController.m in Sources */,
+				490303D217C9799B0035849D /* DevicesViewController.m in Sources */,
 				490303CF17C9799B0035849D /* main.m in Sources */,
 				490303CE17C9799B0035849D /* AppDelegate.m in Sources */,
 			);
@@ -275,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				490303DD17C979C70035849D /* AirCastTests.m in Sources */,
+				490303DD17C979C70035849D /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,22 +285,10 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		490303DA17C979C70035849D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				490303DB17C979C70035849D /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		490303B417C979380035849D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -317,7 +301,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -342,7 +325,6 @@
 		490303B517C979380035849D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -355,7 +337,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

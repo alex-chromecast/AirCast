@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 Andrew Theis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+
++ (AppDelegate *)shared;
+
+
+@property (strong, nonatomic) GCKContext *googleCastContext;
 
 @property (strong, nonatomic) UIWindow *window;
 
