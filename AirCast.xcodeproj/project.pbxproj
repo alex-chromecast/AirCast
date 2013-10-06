@@ -55,6 +55,7 @@
 		499F05A51801D30800E555ED /* GCKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCKFramework.framework; path = Frameworks/GCKFramework.framework; sourceTree = "<group>"; };
 		499F05A71801DFBA00E555ED /* DeviceSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSetupViewController.h; sourceTree = "<group>"; };
 		499F05A81801DFBA00E555ED /* DeviceSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSetupViewController.m; sourceTree = "<group>"; };
+		499F05AB1801E7E800E555ED /* AirCast.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AirCast.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 				490303BC17C9799B0035849D /* Application */,
 				4903038317C979380035849D /* Frameworks */,
 				4903038217C979380035849D /* Products */,
+				499F05AA1801E7E800E555ED /* Receiver */,
 				490303D717C979C70035849D /* Tests */,
 			);
 			sourceTree = "<group>";
@@ -170,6 +172,14 @@
 				499F059E1801CE2200E555ED /* Main.storyboard */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		499F05AA1801E7E800E555ED /* Receiver */ = {
+			isa = PBXGroup;
+			children = (
+				499F05AB1801E7E800E555ED /* AirCast.html */,
+			);
+			path = Receiver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
