@@ -61,6 +61,8 @@
     {
         DeviceSetupViewController *deviceSetupVC = segue.destinationViewController;
         deviceSetupVC.device = _devices[_selectedDeviceRow];
+        
+        if (_deviceManager.scanning) [self toggleScanning:self];
     }
 }
 
