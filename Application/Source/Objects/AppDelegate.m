@@ -21,6 +21,13 @@
 }
 
 
++ (NSString *)googleCastApplicationIdentifier
+{
+    static NSString *googleCastApplicationIdentifier = @"adf3e94-e8fa-4988-a00e-726f35220dbc";
+    return googleCastApplicationIdentifier;
+}
+
+
 #pragma mark - UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

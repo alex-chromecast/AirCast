@@ -47,6 +47,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="GZc-42-ykO" kind="push" identifier="PushDeviceSetupViewController" id="f7b-9r-uYp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -64,7 +67,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8g-jC-9Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="46"/>
+            <point key="canvasLocation" x="106" y="46"/>
+        </scene>
+        <!--Device Setup View Controller-->
+        <scene sceneID="o1Y-dV-gJi">
+            <objects>
+                <viewController storyboardIdentifier="DeviceSetupViewController" id="GZc-42-ykO" customClass="DeviceSetupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ewp-Vr-wnD"/>
+                        <viewControllerLayoutGuide type="bottom" id="n0U-lj-d3o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dk0-c2-7hy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9C4-C8-FhY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0KR-30-auk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534" y="46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RsW-JI-j9o">

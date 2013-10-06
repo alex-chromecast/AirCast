@@ -12,6 +12,7 @@
 
 + (AppDelegate *)shared;
 
++ (NSString *)googleCastApplicationIdentifier;
 
 @property (strong, nonatomic) GCKContext *googleCastContext;
 

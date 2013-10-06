@@ -8,6 +8,7 @@
 
 
 #import "AppDelegate.h"
+#import "DeviceSetupViewController.h"
 #import "DevicesViewController.h"
 
 
@@ -21,6 +22,8 @@
     GCKDeviceManager *_deviceManager;
     
     NSMutableArray *_devices;
+    
+    NSUInteger _selectedDeviceRow;
 }
 
 @end
@@ -50,6 +53,18 @@
 }
 
 
+#pragma mark - Object Control
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PushDeviceSetupViewController"])
+    {
+        DeviceSetupViewController *deviceSetupVC = segue.destinationViewController;
+        deviceSetupVC.device = _devices[_selectedDeviceRow];
+    }
+}
+
+
 #pragma mark - View Lifecycle
 
 - (void)viewDidLoad
@@ -59,11 +74,25 @@
     _deviceManager  = [[GCKDeviceManager alloc] initWithContext:[[AppDelegate shared] googleCastContext]];
     [_deviceManager addListener:self];
     
+    // Scan for 5 seconds.
     [self toggleScanning:self];
+    [self performSelector:@selector(toggleScanning:) withObject:self afterDelay:5.0f];
 }
 
 
 #pragma mark - View Control
+
+- (void)setTableHeaderViewHidden:(BOOL)hidden
+{
+    [UIView animateWithDuration:0.35f animations:^{
+        
+        CGRect tableHeaderFrame                 = self.tableView.tableHeaderView.frame;
+        tableHeaderFrame.size.height            = hidden ? 0 : 44;
+        self.tableView.tableHeaderView.frame    = tableHeaderFrame;
+        self.tableView.tableHeaderView          = self.tableView.tableHeaderView;
+    }];
+}
+
 
 - (IBAction)toggleScanning:(id)sender
 {
@@ -74,13 +103,7 @@
         
         self.navigationItem.rightBarButtonItem.title = @"Scan";
         
-        [UIView animateWithDuration:0.35f animations:^{
-            
-            CGRect tableHeaderFrame                 = self.tableView.tableHeaderView.frame;
-            tableHeaderFrame.size.height            = 0;
-            self.tableView.tableHeaderView.frame    = tableHeaderFrame;
-            self.tableView.tableHeaderView          = self.tableView.tableHeaderView;
-        }];
+        [self setTableHeaderViewHidden:YES];
     }
     else
     {
@@ -89,13 +112,7 @@
         
         self.navigationItem.rightBarButtonItem.title = @"Stop Scan";
         
-        [UIView animateWithDuration:0.35f animations:^{
-            
-            CGRect tableHeaderFrame                 = self.tableView.tableHeaderView.frame;
-            tableHeaderFrame.size.height            = 44;
-            self.tableView.tableHeaderView.frame    = tableHeaderFrame;
-            self.tableView.tableHeaderView          = self.tableView.tableHeaderView;
-        }];
+        [self setTableHeaderViewHidden:NO];
     }
 }
 
@@ -104,7 +121,7 @@
 
 - (void)deviceDidComeOnline:(GCKDevice *)device
 {
-    if (![_devices containsObject:device]) [_devices addObject:device];
+    if (![_devices containsObject:device])  [_devices addObject:device];
     [self.tableView reloadData];
 }
 
@@ -118,13 +135,13 @@
 
 #pragma mark - UITableViewDataSource
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _devices.count;
 }
 
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *deviceTableCellID = @"DeviceTableCell";
     
@@ -134,6 +151,15 @@
     cell.textLabel.text = device.friendlyName;
     
     return cell;
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    _selectedDeviceRow = indexPath.row;
 }
 
 @end

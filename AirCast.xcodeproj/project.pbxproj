@@ -21,6 +21,7 @@
 		499F05A01801CE2200E555ED /* DevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499F059C1801CE2200E555ED /* DevicesViewController.m */; };
 		499F05A21801CE2200E555ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499F059E1801CE2200E555ED /* Main.storyboard */; };
 		499F05A61801D30800E555ED /* GCKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499F05A51801D30800E555ED /* GCKFramework.framework */; };
+		499F05A91801DFBA00E555ED /* DeviceSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499F05A81801DFBA00E555ED /* DeviceSetupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		499F059C1801CE2200E555ED /* DevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevicesViewController.m; sourceTree = "<group>"; };
 		499F059E1801CE2200E555ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		499F05A51801D30800E555ED /* GCKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCKFramework.framework; path = Frameworks/GCKFramework.framework; sourceTree = "<group>"; };
+		499F05A71801DFBA00E555ED /* DeviceSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSetupViewController.h; sourceTree = "<group>"; };
+		499F05A81801DFBA00E555ED /* DeviceSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSetupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 		499F059A1801CE2200E555ED /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				499F05A71801DFBA00E555ED /* DeviceSetupViewController.h */,
+				499F05A81801DFBA00E555ED /* DeviceSetupViewController.m */,
 				499F059B1801CE2200E555ED /* DevicesViewController.h */,
 				499F059C1801CE2200E555ED /* DevicesViewController.m */,
 				499F059E1801CE2200E555ED /* Main.storyboard */,
@@ -263,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499F05A91801DFBA00E555ED /* DeviceSetupViewController.m in Sources */,
 				499F05A01801CE2200E555ED /* DevicesViewController.m in Sources */,
 				490303CF17C9799B0035849D /* main.m in Sources */,
 				499F059F1801CE2200E555ED /* AppDelegate.m in Sources */,
