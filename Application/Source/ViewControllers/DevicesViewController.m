@@ -37,7 +37,6 @@
     
     if (self)
     {
-        _deviceManager  = [[GCKDeviceManager alloc] initWithContext:[[AppDelegate shared] googleCastContext]];
         _devices        = [[NSMutableArray alloc] init];
     }
     
@@ -50,6 +49,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _deviceManager  = [[GCKDeviceManager alloc] initWithContext:[[AppDelegate shared] googleCastContext]];
     
     [self toggleScanning:self];
 }
@@ -91,6 +92,27 @@
 {
     [_devices removeObject:device];
     [self.tableView reloadData];
+}
+
+
+#pragma mark - UITableViewDataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _devices.count;
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *const deviceTableCellID = @"DeviceTableCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deviceTableCellID];
+    GCKDevice *device = _devices[indexPath.row];
+    
+    cell.textLabel.text = device.friendlyName;
+    
+    return cell;
 }
 
 @end

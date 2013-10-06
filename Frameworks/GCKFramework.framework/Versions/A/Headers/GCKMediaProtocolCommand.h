@@ -86,7 +86,7 @@ extern const int kGCKMediaProtocolErrorInvalidRequest;
 @interface GCKMediaProtocolCommand : NSObject
 
 /** The delegate for receiving notifications. */
-@property(nonatomic) id<GCKMediaProtocolCommandDelegate> delegate;
+@property(nonatomic, weak) id<GCKMediaProtocolCommandDelegate> delegate;
 
 /** The command's sequence number. */
 @property(nonatomic, readonly) NSUInteger sequenceNumber;

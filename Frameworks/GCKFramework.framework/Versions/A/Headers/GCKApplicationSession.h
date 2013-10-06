@@ -26,6 +26,19 @@ extern const NSUInteger kGCKApplicationSessionMinBufferSize;
 extern const NSUInteger kGCKApplicationSessionDefaultBufferSize;
 
 /**
+ * @enum GCKSessionState
+ * @brief An enumeration indicating the current session state.
+ *
+ * @memberof GCKApplicationSession
+ */
+typedef NS_ENUM(NSInteger, GCKSessionState) {
+  kGCKSessionStateNotStarted = 0,
+  kGCKSessionStateStarting = 1,
+  kGCKSessionStateStarted = 2,
+  kGCKSessionStateEnding = 3
+};
+
+/**
  * A session with an application on a GCK device. A session is associated with an application;
  * when the session is started, the application is launched, and, if the application supports a
  * communications channel, that channel is established.
@@ -55,7 +68,7 @@ extern const NSUInteger kGCKApplicationSessionDefaultBufferSize;
 @interface GCKApplicationSession : NSObject <GCKApplicationChannelDelegate>
 
 /** The delegate for receiving session notifications. */
-@property(nonatomic) id<GCKApplicationSessionDelegate> delegate;
+@property(nonatomic, weak) id<GCKApplicationSessionDelegate> delegate;
 
 /** The application metadata for the current application. */
 @property(nonatomic, strong, readonly) GCKApplicationMetadata *applicationInfo;
@@ -65,6 +78,9 @@ extern const NSUInteger kGCKApplicationSessionDefaultBufferSize;
 
 /** Indicates whether the session has been successfully started. */
 @property(nonatomic, readonly) BOOL hasStarted;
+
+/** The session's current state. */
+@property(nonatomic, readonly) GCKSessionState sessionState;
 
 /** The session's I/O buffer size. */
 @property(nonatomic, readonly) NSUInteger bufferSize;
@@ -135,7 +151,11 @@ extern const NSUInteger kGCKApplicationSessionDefaultBufferSize;
  * method is called. If the startup fails, the delegate's
  * @link GCKApplicationSessionDelegate#applicationSessionDidFailToStartWithError: @endlink
  * method is called.
- *
+ * <p>
+ * If a non-<code>nil</code> argument is supplied, the receiver application will be relaunched,
+ * even if it is already running. The argument is passed to the application as HTTP POST data
+ * in the DIAL launch request.
+ * <p>
  * @param applicationName The name of the application to start and connect to.
  * @param argument The optional application argument, or <code>nil</code> for none.
  * @return <code>YES</code> on success, or <code>NO</code> if the session is not currently in a
@@ -149,12 +169,27 @@ extern const NSUInteger kGCKApplicationSessionDefaultBufferSize;
  * immediately, and session teardown continues in the background. When the session has been ended,
  * the delegate's
  * @link GCKApplicationSessionDelegate#applicationSessionDidEndWithError: @endlink method
- * is called.
+ * is called. This method <b>must</b> be called at some point after
+ * @link #startSession @endlink, @link #startSessionWithApplication: @endlink, or
+ * @link #startSession:withApplication:argument: @endlink was called and before this object is
+ * released by its owner <i>or</i> anytime the application is going into the background state.
  *
  * @return <code>YES</code> on success or <code>NO</code> if the session is not currently in a
  * "started" state.
  */
 - (BOOL)endSession;
+
+/**
+ * Ends the session in the same manner as @link GCKApplicationSession#endSession @endlink, but
+ * performs the work in a background task. It's appropriate to call this method when ending the
+ * session when the application is going into the background (e.g., in response to a
+ * UIApplicationDidEnterBackgroundNotification), to allow enough time for the session teardown to
+ * complete.
+ *
+ * @return <code>YES</code> if the task has been successfully scheduled, or <code>NO</code> if the
+ * session is not currently in a "started" or "ending" state.
+ */
+- (BOOL)endSessionInBackgroundTask;
 
 /**
  * Resumes a previously ended session. Attempts to reconnect to the same application

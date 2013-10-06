@@ -70,7 +70,7 @@ extern NSString * const kGCKHTTPHeaderLocation;
 @interface GCKSimpleHTTPRequest : NSObject
 
 /** The delegate for receiving notifications. */
-@property(nonatomic, assign) id<GCKSimpleHTTPRequestDelegate> delegate;
+@property(nonatomic, weak) id<GCKSimpleHTTPRequestDelegate> delegate;
 
 /** The request timeout. */
 @property(nonatomic, assign) NSTimeInterval timeout;

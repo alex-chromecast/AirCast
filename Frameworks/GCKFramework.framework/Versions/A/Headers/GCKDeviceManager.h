@@ -43,7 +43,8 @@
 
 /**
  * Stops any in-progress device scan. This method <b>must</b> be called at some point after
- * @link #startScan @endlink was called and before this object is released by its owner.
+ * @link #startScan @endlink was called and before this object is released by its owner <i>or</i>
+ * anytime the application is going into the background state.
  */
 - (void)stopScan;
 

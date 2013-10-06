@@ -21,7 +21,7 @@
 /** @cond INTERNAL */
 
 /** The delegate for receiving GCKApplicationChannel notifications. */
-@property(nonatomic) id<GCKApplicationChannelDelegate> delegate;
+@property(nonatomic, weak) id<GCKApplicationChannelDelegate> delegate;
 
 /** @endcond */
 
@@ -29,13 +29,13 @@
  * The number of bytes that can be written to the outgoing message buffer; will be <code>0</code>
  * if the buffer is full, or <code>-1</code> if the channel is not currently connected.
  */
-@property(nonatomic, readonly) NSUInteger sendBufferAvailableBytes;
+@property(nonatomic, readonly) NSInteger sendBufferAvailableBytes;
 
 /**
  * The number of unsent bytes in the outgoing message buffer; will be <code>0</code> if the buffer
  * is empty (all data has been sent), or <code>-1</code> if the channel is not currently connected.
  */
-@property(nonatomic, readonly) NSUInteger sendBufferPendingBytes;
+@property(nonatomic, readonly) NSInteger sendBufferPendingBytes;
 
 /** @cond INTERNAL */
 

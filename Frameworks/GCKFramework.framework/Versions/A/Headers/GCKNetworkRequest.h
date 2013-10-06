@@ -66,7 +66,7 @@ extern NSString * const kGCKNetworkRequestHTTPOriginValue;
 @interface GCKNetworkRequest : NSObject
 
 /** The delegate for receiving notifications. */
-@property(nonatomic, assign) id<GCKNetworkRequestDelegate> delegate;
+@property(nonatomic, weak) id<GCKNetworkRequestDelegate> delegate;
 
 /** The encoding used for the response data. By default this is NSUTF8StringEncoding. */
 @property(nonatomic) NSStringEncoding responseEncoding;

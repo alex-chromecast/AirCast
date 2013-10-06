@@ -53,14 +53,17 @@
  * Called when a JSON message has been received for this stream on its channel. The default
  * implementation is a no-op.
  *
- * param message The message, parsed into a JSON object.
+ * param message The message, parsed into a JSON object. This will be an instance of one of the
+ * JSON-compatible Foundation objects: <code>NSDictionary</code>, <code>NSArray</code>,
+ * <code>NSString</code>, or <code>NSNumber</code>.
  */
 - (void)didReceiveMessage:(id)message;
 
 /**
  * Sends a JSON message on the channel.
  *
- * @param message The message, as a JSON object.
+ * @param message The message, as an instance of a JSON-compatible Foundation object:
+ * <code>NSDictionary</code>, <code>NSArray</code>, <code>NSString</code>, or <code>NSNumber</code>.
  * @return <code>YES</code> on success or <code>NO</code> if the message could not be sent (because
  * there is no channel attached, or because the channel's send buffer is too full at the moment).
  */

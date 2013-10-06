@@ -46,7 +46,7 @@ extern const double kGCKMaxVolume;
 @interface GCKMediaProtocolMessageStream : GCKMessageStream
 
 /** The delegate that will receive notifications for this stream. */
-@property(nonatomic, assign) id<GCKMediaProtocolMessageStreamDelegate> delegate;
+@property(nonatomic, weak) id<GCKMediaProtocolMessageStreamDelegate> delegate;
 
 /** The current content ID, or <code>nil</code> if none is available. */
 @property(nonatomic, copy, readonly) NSString *contentID;
@@ -159,8 +159,10 @@ extern const double kGCKMaxVolume;
 
 /**
  * Enables and disables media tracks. When the request completes successfully,
- * updated stream status information will be received and
+ * updated stream status information will be received and both
  * @link GCKMediaProtocolMessageStreamDelegate#mediaProtocolMessageStreamDidReceiveStatusUpdate:
+ * @endlink and
+ * @link GCKMediaProtocolMessageStreamDelegate#mediaProtocolMessageStreamDidUpdateTrackList:
  * @endlink will be called. To get the updated status of the media tracks, read the
  * @link #mediaTracks @endlink property.
  *
