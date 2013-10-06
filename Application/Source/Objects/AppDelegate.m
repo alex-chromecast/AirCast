@@ -25,7 +25,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _googleCastContext = [[GCKContext alloc] initWithUserAgent:@"com.google.cast.AirCast/0.1.0"];
+    NSString *bundleVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+    NSString *gcUserAgent   = [NSString stringWithFormat:@"com.andrewtheis.AirCast/%@", bundleVersion];
+    _googleCastContext      = [[GCKContext alloc] initWithUserAgent:gcUserAgent];
 
     return YES;
 }

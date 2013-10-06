@@ -37,10 +37,16 @@
     
     if (self)
     {
-        _devices        = [[NSMutableArray alloc] init];
+        _devices = [[NSMutableArray alloc] init];
     }
     
     return self;
+}
+
+
+- (void)dealloc
+{
+    [_deviceManager removeListener:self];
 }
 
 
@@ -51,6 +57,7 @@
     [super viewDidLoad];
     
     _deviceManager  = [[GCKDeviceManager alloc] initWithContext:[[AppDelegate shared] googleCastContext]];
+    [_deviceManager addListener:self];
     
     [self toggleScanning:self];
 }
@@ -65,16 +72,30 @@
         [_deviceManager stopScan];
         [_activityIndicatorView stopAnimating];
         
-        self.navigationItem.rightBarButtonItem.title = @"Start Scanning";
-        _statusLabel.text = [NSString stringWithFormat:@"%i devices available", _devices.count];
+        self.navigationItem.rightBarButtonItem.title = @"Scan";
+        
+        [UIView animateWithDuration:0.35f animations:^{
+            
+            CGRect tableHeaderFrame                 = self.tableView.tableHeaderView.frame;
+            tableHeaderFrame.size.height            = 0;
+            self.tableView.tableHeaderView.frame    = tableHeaderFrame;
+            self.tableView.tableHeaderView          = self.tableView.tableHeaderView;
+        }];
     }
     else
     {
         [_deviceManager startScan];
         [_activityIndicatorView startAnimating];
         
-        self.navigationItem.rightBarButtonItem.title = @"Stop Scanning";
-        _statusLabel.text = @"Scanning ...";
+        self.navigationItem.rightBarButtonItem.title = @"Stop Scan";
+        
+        [UIView animateWithDuration:0.35f animations:^{
+            
+            CGRect tableHeaderFrame                 = self.tableView.tableHeaderView.frame;
+            tableHeaderFrame.size.height            = 44;
+            self.tableView.tableHeaderView.frame    = tableHeaderFrame;
+            self.tableView.tableHeaderView          = self.tableView.tableHeaderView;
+        }];
     }
 }
 
@@ -83,7 +104,7 @@
 
 - (void)deviceDidComeOnline:(GCKDevice *)device
 {
-    [_devices addObject:device];
+    if (![_devices containsObject:device]) [_devices addObject:device];
     [self.tableView reloadData];
 }
 
@@ -105,7 +126,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *const deviceTableCellID = @"DeviceTableCell";
+    static NSString *deviceTableCellID = @"DeviceTableCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deviceTableCellID];
     GCKDevice *device = _devices[indexPath.row];
